@@ -1,0 +1,13 @@
+The best way to get a polygon region is to query the Overpass API from terminal.
+You could potentially use Postman, but the response from the API is often so large
+that it was crashing that app for me, so I recommend using cURL. The command to
+take a coordinate set that bounds a polygon and exports the OSM for that
+polygon to outputfile.txt is:
+
+curl -d "data=node(poly:\"<coordinate set in lat long lat long format>\"); out meta;" -X POST https://overpass-api.de/api/interpreter > outputfile.txt
+
+You can remove the word "meta" from the command if you don't need the metadata.
+Not sure all the applications for that yet, but I needed the meta to open the
+output file in JavaOpenStreetMap (JOSM, an OSM editor application).
+
+I'll also put a txt file with the query used to get all of Travis County in this folder.
